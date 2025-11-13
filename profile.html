@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - Team 22 Palembang</title>
+
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="main.css" />
+
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Hero Section */
+    .hero-prof {
+      background: #e6e1e1;
+      color: #ff4d4d;
+      text-align: center;
+      padding: 80px 20px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .hero-prof h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .hero-prof h3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+
+    /* Project Section */
+    .projects {
+      padding: 50px 30px;
+    }
+
+    .project {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .project h3 {
+      color: #ff4d4d;
+      font-weight: 600;
+    }
+
+    .project p {
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-header d-flex align-items-center px-3 py-2">
+      <h4 class="mb-0 text-white">Menu</h4>
+    </div>
+    <ul class="sidebar-menu list-unstyled px-2">
+
+      <li><a href="index.html" class="text-white py-2"><i class="fas fa-chart-bar"></i><span>Dashboard</span></a></li>
+      <li><a href="about.html" class="text-white py-2"><i class="fas fa-users"></i><span>About Us</span></a>
+      </li>
+      <li><a href="profile.html" class="text-white py-2 active"><i class="fas fa-user"></i><span>Profile</span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content" class="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarToggleMain" class="btn border-0 shadow-none text-white ms-2 me-2">
+          <i class="fas fa-bars"></i>
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="title-nav ms-3 d-flex align-items-center">
+          <img src="images/pizza.png" alt="Pizza Logo" width="70" height="70" />
+          <div class="ms-3">
+            <p class="header-title mb-0 fw-bold">Dashboard Pizza Sales</p>
+            <p class="header-desc mb-0">Team 22 - Section Palembang</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-prof">
+      <div class="container-hero">
+        <h2 class="h2-hero">Laporan Penjualan Maniez Pizza 2015</h2>
+        <h3 class="h3-hero">Analisis Tren 'Maniez Pizza' Tahun 2015</h3>
+      </div>
+    </section>
+
+    <section class="projects container">
+      <div class="project">
+        <h3>Tentang Dashboard Ini</h3>
+        <p>Dashboard ini adalah adalah capstone project MSIB RevoU Software Engineering & Data Analytics. Studi kasus
+          menggunakan data penjualan toko pizza fiktif yaitu 'Maniez Pizza'. Halaman Dashboard
+          menyajikan visualisasi interaktif dari semua metrik penjualan, KPI, dan tren bulanan
+          secara eksklusif dari data tahun 2015.</p>
+      </div>
+      <div class="project">
+        <h3>Konteks & Batasan Data</h3>
+        <p>Data yang digunakan adalah <strong>dataset tahun 2015.</strong>
+          Oleh karena itu, filter tanggal pada dashboard telah dibatasi hanya untuk rentang 1 Jan 2015
+          hingga 31 Des 2015 untuk memastikan data tampil dengan benar.</p>
+      </div>
+      <div class="project">
+        <h3>Tentang Pengembang</h3>
+        <p>Proyek ini dikembangkan oleh <strong>Team 22 - Section Palembang</strong>.
+          Anda dapat mengunjungi halaman 'About Us' (dari sidebar) untuk melihat anggota tim yang
+          berkontribusi
+          dalam pembuatan dashboard ini.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+    const toggleButtons = [document.getElementById('sidebarToggle'), document.getElementById('sidebarToggleMain')];
+
+    toggleButtons.forEach(btn => {
+      if (btn) {
+        btn.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+          content.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+
+
+<footer class="container-fluid text-center text-muted py-4 mt-4 border-top">
+  <p class="mb-1">
+    Copyright © 2025 Aris Munandar. All Rights Reserved.
+  </p>
+  <p class="mb-0">
+    <small>Dikembangkan untuk Proyek Dashboard Pizza Sales (Team 22 - Section Palembang)</small>
+  </p>
+</footer>
+
+</html>

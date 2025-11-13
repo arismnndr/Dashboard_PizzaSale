@@ -1,0 +1,281 @@
+/* === GLOBAL STYLES === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* === SIDEBAR STYLE (STATE DEFAULT: TERSEMBUNYI) === */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px; /* Lebar penuh sidebar */
+  background: #1e1e2d;
+  color: #fff;
+  transition: all 0.3s;
+  z-index: 999;
+  margin-left: -220px; /* DIUBAH: Sembunyi di luar layar secara default */
+  padding-top: 20px;
+}
+
+.sidebar-header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h4 {
+  display: block; /* Teks menu selalu siap tampil */
+  opacity: 1;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0; /* Padding kembali ke 0 */
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar-menu li {
+  margin: 0;
+}
+
+/* Style link kembali ke normal */
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Teks rata kiri */
+  gap: 10px; /* Jarak antara ikon dan teks */
+  padding: 12px 20px; /* Padding normal */
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0; /* Tidak ada radius */
+  margin-bottom: 0; /* Tidak ada margin bawah */
+}
+
+/* Style ikon kembali ke normal */
+.sidebar-menu a i {
+  font-size: 1.25rem;
+  width: auto; /* Lebar ikon otomatis */
+}
+
+/* Style teks kembali ke normal */
+.sidebar-menu a span {
+  display: inline;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.sidebar-menu a:hover {
+  background-color: #2d2f44;
+  border-left: 4px solid #0dcaf0; /* Border hover kembali */
+}
+
+.sidebar-menu a.active {
+  background-color: #2d2f44;
+  border-left: 4px solid #0dcaf0; /* Border active kembali */
+}
+
+/* === STATE: TAMPIL (Saat .active) === */
+
+.sidebar.active {
+  width: 220px;
+  margin-left: 0; /* DIUBAH: Tampilkan sidebar */
+}
+
+/* === KONTEN === */
+
+.content {
+  margin-left: 0px; /* DIUBAH: Konten lebar penuh secara default */
+  transition: all 0.3s;
+}
+
+.content.active {
+  margin-left: 220px; /* Konten terdorong saat sidebar aktif */
+}
+
+/* --- TOGGLE BUTTON IMPROVEMENT (Tidak berubah) --- */
+#sidebarToggleMain:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+
+#sidebarToggleMain .fa-times {
+  display: none;
+}
+
+#sidebarToggleMain .fa-bars {
+  display: block;
+}
+
+#content.active #sidebarToggleMain .fa-bars {
+  display: none;
+}
+
+#content.active #sidebarToggleMain .fa-times {
+  display: block;
+}
+
+/* Responsive (Logika ini sudah benar) */
+@media (max-width: 992px) {
+  /* Logika mobile adalah SEMBUNYI (overlay) */
+  .sidebar {
+    margin-left: -220px; /* Sembunyi total di mobile */
+    width: 220px; 
+  }
+  .sidebar.active {
+    margin-left: 0; /* Tampilkan (overlay) */
+  }
+  .content {
+    margin-left: 0; /* Konten selalu full width */
+  }
+  .content.active {
+    margin-left: 0; /* Konten tetap full width (efek overlay) */
+  }
+
+  .title-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
+
+/* === TOP NAVIGATION (Tidak berubah) === */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #ec3535 !important;
+  border-bottom: none;
+  z-index: 900;
+  padding: 0.5rem 1rem;
+  min-height: 80px;
+}
+
+.navbar .container-fluid {
+  display: flex;
+  align-items: center;
+}
+
+.title-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: transparent;
+  color: white;
+}
+
+.header-text p {
+  margin: 0;
+}
+
+.header-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff; /* DIUBAH: Jadi putih agar kontras */
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+
+.header-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+#sidebarToggleMain {
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+/* === KPI CARDS (Tidak berubah) === */
+.bg-button {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.2);
+  transition: transform 0.2s ease;
+}
+.bg-button:hover {
+  transform: translateY(-3px);
+}
+.p-data {
+  padding: 20px;
+}
+.text-15 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.text-30 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+/* === CARD STYLING (Tidak berubah) === */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+.card-body {
+  padding: 1.5rem;
+}
+.card hr {
+  margin: 0.75rem 0 1rem 0;
+  border-color: #e2e8f0;
+}
+
+/* === FORMS (Tidak berubah) === */
+.form-label {
+  font-weight: 500;
+  color: #334155;
+}
+.form-control,
+.form-select {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+/* === CHARTS (Tidak berubah) === */
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 300px;
+}
+
+/* === Responsive Sisa (Tidak berubah) === */
+@media (max-width: 576px) {
+  .text-30 {
+    font-size: 1.5rem;
+  }
+  .text-15 {
+    font-size: 0.9rem;
+  }
+  .p-data {
+    padding: 15px;
+  }
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+}
