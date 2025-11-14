@@ -134,7 +134,17 @@ async function visualizeData(sizeFilter = '', startDate = '', endDate = '') {
       ],
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      layout:{
+        padding:20
+      },
+
       plugins: {
+        legend: {
+          display: true
+        },
         tooltip: {
           callbacks: {
             label: function (context) {
